@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {NovoUsuario} from "./novo-usuario";
+import {minusculoValidator} from "./minusculo.validator";
 
 @Component({
   selector: 'app-novo-usuario',
@@ -26,7 +27,8 @@ export class NovoUsuarioComponent implements OnInit {
         Validators.email,
       ]],
       userName: ['', [
-        Validators.required
+        Validators.required,
+        minusculoValidator
       ]],
       password: ['', [
         Validators.required
