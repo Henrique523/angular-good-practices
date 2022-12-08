@@ -42,6 +42,11 @@
       *ngIf="novoUsuarioForm.get('userName')?.errors?.minusculo
         && novoUsuarioForm.get('userName')?.touched"
     ></app-mensagem>
+    <app-mensagem
+      mensagem="Já existe um usuário criado com este nome no sistema"
+      *ngIf="novoUsuarioForm.get('userName')?.errors?.usuarioExistente
+        && novoUsuarioForm.get('userName')?.touched"
+    ></app-mensagem>
   </div>
 
   <div class="form-group mt-2">
@@ -50,6 +55,10 @@
       mensagem="Senha é obrigatória"
       *ngIf="novoUsuarioForm.get('password')?.errors?.required
         && novoUsuarioForm.get('password')?.touched"
+    ></app-mensagem>
+    <app-mensagem
+      mensagem="Senha não pode ser igual à do usuário"
+      *ngIf="novoUsuarioForm.errors?.usuarioSenhaIguais"
     ></app-mensagem>
   </div>
 
